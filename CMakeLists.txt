@@ -53,7 +53,7 @@ if (ITT_API_IPT_SUPPORT)
     endif()
 endif()
 
-target_compile_definitions(ittnotify PUBLIC $<$<CONFIG:Debug>:_DEBUG:NDEBUG>)
+target_compile_definitions(ittnotify PUBLIC $<IF:$<CONFIG:Debug>,_DEBUG,NDEBUG>)
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
